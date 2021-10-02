@@ -367,9 +367,18 @@ MonoBehaviour:
   wheelMask:
     serializedVersion: 2
     m_Bits: 64
-  grounded: 0
-  frontWheelGrounded: 0
-  backWheelGrounded: 0
+  grounded:
+    phariable: {fileID: 0}
+    useConstant: 0
+    constant: 0
+  frontWheelGrounded:
+    phariable: {fileID: 0}
+    useConstant: 0
+    constant: 0
+  backWheelGrounded:
+    phariable: {fileID: 0}
+    useConstant: 0
+    constant: 0
   input: {x: 0, y: 0}
 --- !u!114 &201398155
 MonoBehaviour:
@@ -1127,9 +1136,18 @@ MonoBehaviour:
   wheelMask:
     serializedVersion: 2
     m_Bits: 0
-  grounded: 0
-  frontWheelGrounded: 0
-  backWheelGrounded: 0
+  grounded:
+    phariable: {fileID: 0}
+    useConstant: 0
+    constant: 0
+  frontWheelGrounded:
+    phariable: {fileID: 0}
+    useConstant: 0
+    constant: 0
+  backWheelGrounded:
+    phariable: {fileID: 0}
+    useConstant: 0
+    constant: 0
   input: {x: 0, y: 0}
 --- !u!114 &605727259
 MonoBehaviour:
@@ -1682,9 +1700,18 @@ MonoBehaviour:
   wheelMask:
     serializedVersion: 2
     m_Bits: 19
-  grounded: 0
-  frontWheelGrounded: 0
-  backWheelGrounded: 0
+  grounded:
+    phariable: {fileID: 11400000, guid: 75670dc9bc5f1ac4a807261b8e12d3cb, type: 2}
+    useConstant: 0
+    constant: 0
+  frontWheelGrounded:
+    phariable: {fileID: 11400000, guid: 3a5a5200ecc5bb0489107abcf8426e8c, type: 2}
+    useConstant: 0
+    constant: 0
+  backWheelGrounded:
+    phariable: {fileID: 11400000, guid: 5be5d2d4ee70e5f43ad47e2207329428, type: 2}
+    useConstant: 0
+    constant: 0
   input: {x: 0, y: 0}
 --- !u!114 &1150282550
 MonoBehaviour:
@@ -1760,10 +1787,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b6edc97107849458ae8541aa05af41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicleController: {fileID: 1150282549}
+  vehicleRidigbody: {fileID: 1150282547}
+  grounded:
+    phariable: {fileID: 11400000, guid: 75670dc9bc5f1ac4a807261b8e12d3cb, type: 2}
+    useConstant: 0
+    constant: 0
+  frontWheelGrounded:
+    phariable: {fileID: 11400000, guid: 3a5a5200ecc5bb0489107abcf8426e8c, type: 2}
+    useConstant: 0
+    constant: 0
+  backWheelGrounded:
+    phariable: {fileID: 11400000, guid: 5be5d2d4ee70e5f43ad47e2207329428, type: 2}
+    useConstant: 0
+    constant: 0
   initialRotation: 0
-  wheelieCounter: 0
-  stoppieCounter: 0
+  wheelieCounter:
+    phariable: {fileID: 0}
+    useConstant: 1
+    constant: 0
+  stoppieCounter:
+    phariable: {fileID: 0}
+    useConstant: 1
+    constant: 0
 --- !u!1 &1286654031
 GameObject:
   m_ObjectHideFlags: 3

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using ExpPlus.Phariables;
 
 public class VehicleController : MonoBehaviour
 {
@@ -30,9 +31,12 @@ public class VehicleController : MonoBehaviour
     private LayerMask wheelMask;
 
     [Header("Status")]
-    public bool grounded;
-    public bool frontWheelGrounded;
-    public bool backWheelGrounded;
+    [SerializeField]
+    private BoolRepherence  grounded;
+    [SerializeField]
+    private BoolRepherence frontWheelGrounded;
+    [SerializeField]
+    private BoolRepherence backWheelGrounded;
 
     [SerializeField]
     private Vector2 input;
@@ -67,10 +71,10 @@ public class VehicleController : MonoBehaviour
         RaycastHit2D frontHit = Physics2D.Raycast(frontWheelGameObject.transform.position, Vector2.down, wheelRadius, wheelMask.value);
         RaycastHit2D backHit = Physics2D.Raycast(backWheelGameObject.transform.position, Vector2.down, wheelRadius, wheelMask.value);
 
-        frontWheelGrounded = frontHit.transform != null;
-        backWheelGrounded = backHit.transform != null;
+        frontWheelGrounded.value = frontHit.transform != null;
+        backWheelGrounded.value = backHit.transform != null;
 
-        grounded = frontWheelGrounded && backWheelGrounded;
+        grounded.value = frontWheelGrounded && backWheelGrounded;
     }
 
     //Called by PlayerInput
