@@ -7,9 +7,13 @@ public class VehicleController : MonoBehaviour
     [SerializeField]
     private new Rigidbody2D rigidbody;
     [SerializeField]
-    private WheelJoint2D frontWheel;
+    private GameObject frontWheelGameObject;
     [SerializeField]
-    private WheelJoint2D backWheel;
+    private WheelJoint2D frontWheelJoint;
+    [SerializeField]
+    private GameObject backWheelGameObject;
+    [SerializeField]
+    private WheelJoint2D backWheelJoint;
 
     private JointMotor2D frontMotor;
     private JointMotor2D backMotor;
@@ -19,7 +23,16 @@ public class VehicleController : MonoBehaviour
     [SerializeField]
     private float speed = 1000f;
     [SerializeField]
-    private float leanPower = 750f;
+    private float leanPower = 1000f;
+    [SerializeField]
+    private float wheelRadius = 0.4f;
+    [SerializeField]
+    private LayerMask wheelMask;
+
+    [Header("Status")]
+    public bool grounded;
+    public bool frontWheelGrounded;
+    public bool backWheelGrounded;
 
     [SerializeField]
     private Vector2 input;
@@ -27,8 +40,8 @@ public class VehicleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        frontMotor = frontWheel.motor;
-        backMotor = backWheel.motor;
+        frontMotor = frontWheelJoint.motor;
+        backMotor = backWheelJoint.motor;
     }
 
     // Update is called once per frame
@@ -38,14 +51,26 @@ public class VehicleController : MonoBehaviour
         frontMotor.motorSpeed = speed * -input.y;
         backMotor.motorSpeed = speed * -input.y;
 
-        frontWheel.motor = frontMotor;
-        backWheel.motor = backMotor;
+        frontWheelJoint.motor = frontMotor;
+        backWheelJoint.motor = backMotor;
 
-        backWheel.useMotor = input.y != 0;
-        frontWheel.useMotor = input.y != 0;
+        backWheelJoint.useMotor = input.y != 0;
+        frontWheelJoint.useMotor = input.y != 0;
 
         //Leaning
         rigidbody.angularVelocity += leanPower * -input.x * Time.deltaTime;
+
+        //Status
+        Debug.DrawRay(frontWheelGameObject.transform.position, Vector3.down * wheelRadius, Color.yellow);
+        Debug.DrawRay(backWheelGameObject.transform.position, Vector3.down * wheelRadius, Color.yellow);
+
+        RaycastHit2D frontHit = Physics2D.Raycast(frontWheelGameObject.transform.position, Vector2.down, wheelRadius, wheelMask.value);
+        RaycastHit2D backHit = Physics2D.Raycast(backWheelGameObject.transform.position, Vector2.down, wheelRadius, wheelMask.value);
+
+        frontWheelGrounded = frontHit.transform != null;
+        backWheelGrounded = backHit.transform != null;
+
+        grounded = frontWheelGrounded && backWheelGrounded;
     }
 
     //Called by PlayerInput

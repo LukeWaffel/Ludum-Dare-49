@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 155728109}
   - component: {fileID: 155728110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 198952141}
   - component: {fileID: 198952140}
   - component: {fileID: 198952139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,8 +337,8 @@ GameObject:
   - component: {fileID: 201398156}
   - component: {fileID: 201398155}
   - component: {fileID: 201398154}
-  m_Layer: 0
-  m_Name: New Scooter
+  m_Layer: 6
+  m_Name: Scooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,16 +351,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201398153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14f99e5d55041da4a8995344c6f6756c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 1150282547}
-  frontWheel: {fileID: 1150282545}
-  backWheel: {fileID: 1150282546}
+  frontWheelGameObject: {fileID: 0}
+  frontWheelJoint: {fileID: 0}
+  backWheelGameObject: {fileID: 0}
+  backWheelJoint: {fileID: 0}
   speed: 3000
   leanPower: 1000
+  wheelRadius: 10
+  wheelMask:
+    serializedVersion: 2
+    m_Bits: 64
+  fullyGrounded: 0
+  frontWheelGrounded: 0
+  backWheelGrounded: 0
   input: {x: 0, y: 0}
 --- !u!114 &201398155
 MonoBehaviour:
@@ -369,7 +378,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201398153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -439,7 +448,7 @@ Transform:
   - {fileID: 198952138}
   - {fileID: 1847893536}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &335996283
 GameObject:
@@ -454,7 +463,7 @@ GameObject:
   - component: {fileID: 335996287}
   - component: {fileID: 335996286}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +532,7 @@ Transform:
   m_LocalScale: {x: 40, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &335996286
 BoxCollider2D:
@@ -584,7 +593,7 @@ GameObject:
   - component: {fileID: 345878156}
   - component: {fileID: 345878155}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 2.9797, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -43.881}
 --- !u!1 &402139430
 GameObject:
@@ -891,7 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 538617216}
   - component: {fileID: 538617217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1102,7 @@ Transform:
   - {fileID: 2000659279}
   - {fileID: 1312371168}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &605727258
 MonoBehaviour:
@@ -1108,10 +1117,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 604882228}
-  frontWheel: {fileID: 2000659280}
-  backWheel: {fileID: 1312371169}
+  frontWheelGameObject: {fileID: 0}
+  frontWheelJoint: {fileID: 0}
+  backWheelGameObject: {fileID: 0}
+  backWheelJoint: {fileID: 0}
   speed: 3000
   leanPower: 1000
+  wheelRadius: 0.4
+  wheelMask:
+    serializedVersion: 2
+    m_Bits: 0
+  fullyGrounded: 0
+  frontWheelGrounded: 0
+  backWheelGrounded: 0
   input: {x: 0, y: 0}
 --- !u!114 &605727259
 MonoBehaviour:
@@ -1154,6 +1172,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ed5a82cc-e0be-4a96-ad0d-0fd1eb105e3a
     m_ActionName: Vehicle/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/leftTrigger,/XInputControllerWindows1/leftTrigger,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d57666d8-4d09-4d48-b334-1658c1c47906
+    m_ActionName: Vehicle/[DEV] Reset[/XInputControllerWindows/select,/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Vehicle
@@ -1251,7 +1273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 854281047}
   - component: {fileID: 854281048}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1333,7 +1355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 913466050}
   - component: {fileID: 913466051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1415,7 +1437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1109633198}
   - component: {fileID: 1109633199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1498,9 +1520,11 @@ GameObject:
   - component: {fileID: 1150282544}
   - component: {fileID: 1150282548}
   - component: {fileID: 1150282547}
+  - component: {fileID: 1150282550}
+  - component: {fileID: 1150282549}
   - component: {fileID: 1150282546}
   - component: {fileID: 1150282545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,6 +1658,95 @@ PolygonCollider2D:
       - {x: 0.5026372, y: -0.028095907}
       - {x: 0.8619967, y: -0.021282494}
       - {x: 0.8712859, y: 0.7278127}
+--- !u!114 &1150282549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150282543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f99e5d55041da4a8995344c6f6756c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 1150282547}
+  frontWheelGameObject: {fileID: 198952137}
+  frontWheelJoint: {fileID: 1150282546}
+  backWheelGameObject: {fileID: 1847893535}
+  backWheelJoint: {fileID: 1150282545}
+  speed: 3000
+  leanPower: 1000
+  wheelRadius: 0.22
+  wheelMask:
+    serializedVersion: 2
+    m_Bits: 19
+  fullyGrounded: 0
+  frontWheelGrounded: 0
+  backWheelGrounded: 0
+  input: {x: 0, y: 0}
+--- !u!114 &1150282550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150282543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: b93b891af9d394740ae86bb5c5e8cf12, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1150282549}
+        m_TargetAssemblyTypeName: VehicleController, Assembly-CSharp
+        m_MethodName: MovementEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ed5a82cc-e0be-4a96-ad0d-0fd1eb105e3a
+    m_ActionName: Vehicle/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/rightTrigger,/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1150282549}
+        m_TargetAssemblyTypeName: VehicleController, Assembly-CSharp
+        m_MethodName: ResetEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d57666d8-4d09-4d48-b334-1658c1c47906
+    m_ActionName: Vehicle/[DEV] Reset[/XInputControllerWindows/select,/Keyboard/r]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Vehicle
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 519420031}
 --- !u!1 &1286654031
 GameObject:
   m_ObjectHideFlags: 3
@@ -1857,7 +1970,7 @@ GameObject:
   - component: {fileID: 1467780557}
   - component: {fileID: 1467780556}
   m_Layer: 0
-  m_Name: CM vcam1
+  m_Name: Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1911,7 +2024,7 @@ Transform:
   m_Children:
   - {fileID: 1286654032}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1540268377
 GameObject:
@@ -2171,7 +2284,7 @@ GameObject:
   - component: {fileID: 1847893539}
   - component: {fileID: 1847893538}
   - component: {fileID: 1847893537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wheel_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
