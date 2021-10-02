@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -55,5 +53,13 @@ public class VehicleController : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
         this.input = input;
+    }
+
+    public void ResetEvent(InputAction.CallbackContext context)
+    {
+        transform.GetChild(0).localPosition = Vector3.zero;
+        transform.GetChild(0).localEulerAngles = Vector3.zero;
+        rigidbody.velocity = Vector2.zero;
+        rigidbody.angularVelocity = 0f;
     }
 }
