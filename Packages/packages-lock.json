@@ -184,6 +184,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "nl.exp-plus.anvil.phariables": {
+      "version": "2.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://192.168.68.104:4873"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
