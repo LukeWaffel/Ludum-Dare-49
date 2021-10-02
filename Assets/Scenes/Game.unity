@@ -359,8 +359,8 @@ MonoBehaviour:
   rigidbody: {fileID: 1150282547}
   frontWheel: {fileID: 1150282545}
   backWheel: {fileID: 1150282546}
-  motorPower: 3000
-  leanPower: 750
+  speed: 3000
+  leanPower: 1000
   input: {x: 0, y: 0}
 --- !u!114 &201398155
 MonoBehaviour:
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   rigidbody: {fileID: 0}
   frontWheel: {fileID: 2000659280}
   backWheel: {fileID: 1312371169}
-  motorPower: 1000
+  speed: 1000
   leanPower: 1
   input: {x: 0, y: 0}
 --- !u!114 &605727259
