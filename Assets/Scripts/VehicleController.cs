@@ -82,8 +82,8 @@ public class VehicleController : MonoBehaviour
 
     public void ResetEvent(InputAction.CallbackContext context)
     {
-        transform.GetChild(0).localPosition = Vector3.zero;
-        transform.GetChild(0).localEulerAngles = Vector3.zero;
+        transform.position = new Vector3(0,-2,0);
+        transform.localEulerAngles = Vector3.zero;
         rigidbody.velocity = Vector2.zero;
         rigidbody.angularVelocity = 0f;
     }

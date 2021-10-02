@@ -367,7 +367,7 @@ MonoBehaviour:
   wheelMask:
     serializedVersion: 2
     m_Bits: 64
-  fullyGrounded: 0
+  grounded: 0
   frontWheelGrounded: 0
   backWheelGrounded: 0
   input: {x: 0, y: 0}
@@ -1127,7 +1127,7 @@ MonoBehaviour:
   wheelMask:
     serializedVersion: 2
     m_Bits: 0
-  fullyGrounded: 0
+  grounded: 0
   frontWheelGrounded: 0
   backWheelGrounded: 0
   input: {x: 0, y: 0}
@@ -1524,6 +1524,7 @@ GameObject:
   - component: {fileID: 1150282549}
   - component: {fileID: 1150282546}
   - component: {fileID: 1150282545}
+  - component: {fileID: 1150282551}
   m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
@@ -1681,7 +1682,7 @@ MonoBehaviour:
   wheelMask:
     serializedVersion: 2
     m_Bits: 19
-  fullyGrounded: 0
+  grounded: 0
   frontWheelGrounded: 0
   backWheelGrounded: 0
   input: {x: 0, y: 0}
@@ -1747,6 +1748,22 @@ MonoBehaviour:
   m_DefaultActionMap: Vehicle
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 519420031}
+--- !u!114 &1150282551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150282543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b6edc97107849458ae8541aa05af41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleController: {fileID: 1150282549}
+  initialRotation: 0
+  wheelieCounter: 0
+  stoppieCounter: 0
 --- !u!1 &1286654031
 GameObject:
   m_ObjectHideFlags: 3
