@@ -46,9 +46,7 @@ public class VehicleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (centerOfMass != null)
-            rigidbody.centerOfMass = centerOfMass.localPosition;
-        //centerOfMass.localPosition = rigidbody.centerOfMass;  
+  
 
         frontMotor = frontWheelJoint.motor;
         backMotor = backWheelJoint.motor;
@@ -57,6 +55,10 @@ public class VehicleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (centerOfMass != null)
+            rigidbody.centerOfMass = centerOfMass.localPosition;
+        //centerOfMass.localPosition = rigidbody.centerOfMass;  
 
         //Driving
         frontMotor.motorSpeed = speed * -input.y;
