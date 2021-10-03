@@ -74,7 +74,7 @@ public class VehicleController : MonoBehaviour
         frontWheelGrounded.value = frontHit.transform != null;
         backWheelGrounded.value = backHit.transform != null;
 
-        grounded.value = frontWheelGrounded && backWheelGrounded;
+        grounded.value = frontWheelGrounded || backWheelGrounded;
     }
 
     //Called by PlayerInput

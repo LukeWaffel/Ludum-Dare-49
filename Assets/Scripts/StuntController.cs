@@ -8,7 +8,7 @@ public class StuntController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D vehicleRidigbody;
 
-    [Header("Repherences")]
+    [Header("Grounded states")]
     [SerializeField]
     private BoolRepherence grounded;
     [SerializeField]
@@ -16,25 +16,45 @@ public class StuntController : MonoBehaviour
     [SerializeField]
     private BoolRepherence backWheelGrounded;
 
-    [SerializeField]
-    private float initialRotation;
-
+    [Header("Stunt States")]
     [SerializeField]
     private FloatRepherence wheelieCounter;
     [SerializeField]
     private FloatRepherence stoppieCounter;
+    [SerializeField]
+    private bool isUpsideDown;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Events")]
+    [SerializeField]
+    private BoolRepherence didBackflip;
+    [SerializeField]
+    private BoolRepherence didFrontFlip;
 
     // Update is called once per frame
     void Update()
     {
+        FlipCheck();
         WheelieChecker();
         StoppieCheckcer();
+    }
+
+    private void FlipCheck()
+    {
+        if (transform.eulerAngles.z >= 160f && transform.eulerAngles.z <= 200f)
+            isUpsideDown = true;
+
+        if (transform.eulerAngles.z < 160 && isUpsideDown)
+        {
+
+            if (vehicleRidigbody.angularVelocity > 0)
+            {
+                didBackflip.value = true;
+            }
+            else
+            {
+                didFrontFlip.value = true;
+            }
+        }
     }
 
     private void WheelieChecker()
