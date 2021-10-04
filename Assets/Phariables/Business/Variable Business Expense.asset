@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835775ea25caccd41aa1993450bbcf0f, type: 3}
   m_Name: Variable Business Expense
   m_EditorClassIdentifier: 
-  _value: 7.5
+  _value: 5
   onChangeSignals: []

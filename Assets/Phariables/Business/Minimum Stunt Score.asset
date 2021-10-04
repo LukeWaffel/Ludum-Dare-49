@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34f7ec25de659348ab398e2fd1d880f, type: 3}
   m_Name: Minimum Stunt Score
   m_EditorClassIdentifier: 
-  _value: 1000
+  _value: 150
   onChangeSignals: []

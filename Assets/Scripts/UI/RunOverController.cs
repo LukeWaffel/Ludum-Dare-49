@@ -111,8 +111,9 @@ public class RunOverController : MonoBehaviour
         wheelieTimeText.text = ((int)wheelieTime.value).ToString();
         stoppieTimeText.text = ((int)stoppieTime.value).ToString();
 
+        int desiredStuntScore = minimumStuntScore.value * pizzasToDeliver.value;
 
-        if(stuntScore.value >= minimumStuntScore.value)
+        if (stuntScore.value >= desiredStuntScore)
         {
             if(pizzasToDeliver.value < maxPizzasToDeliver.value)
             {
@@ -135,9 +136,9 @@ public class RunOverController : MonoBehaviour
             }
         }
 
-        scoreAboveBelowText.text = stuntScore.value >= minimumStuntScore.value ? $"Stunt score is {minimumStuntScore.value} or higher" : $"Stunt score is below {minimumStuntScore.value}";
+        scoreAboveBelowText.text = stuntScore.value >= desiredStuntScore ? $"Stunt score is {desiredStuntScore} or higher" : $"Stunt score is below {desiredStuntScore}";
         //customerGainedText.text = stuntScore.value >= minimumStuntScore.value ? "You gained a customer!" : "You lost a customer";
-        customerGainedText.color = stuntScore.value >= minimumStuntScore.value ? gainedColor : lostColor;
+        customerGainedText.color = stuntScore.value >= desiredStuntScore ? gainedColor : lostColor;
 
         pizzasDeliveredText.text = $"{pizzasDelivered.value}/{pizzasToDeliver.value}";
         deliveredPizzaProfitText.text = $"${pizzasDelivered.value * pricePerPizza.value} ({pizzasDelivered.value} x ${pricePerPizza.value})";
@@ -156,8 +157,12 @@ public class RunOverController : MonoBehaviour
         //Reset and configure variabvles
         day.value++;
         pizzasDelivered.value = 0;
+        wheelieTime.value = 0;
+        stoppieTime.value = 0;
+        backflips.value = 0;
+        frontflips.value = 0;
 
-        if(stuntScore >= minimumStuntScore.value)
+        if(stuntScore >= desiredStuntScore)
         {
             pizzasToDeliver.value++;
             pizzasToDeliver.value = Mathf.Clamp(pizzasToDeliver.value, 0, maxPizzasToDeliver.value);
