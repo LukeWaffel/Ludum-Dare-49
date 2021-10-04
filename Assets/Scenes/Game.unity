@@ -895,6 +895,10 @@ MonoBehaviour:
     useConstant: 0
     constant: 0
   stuntScoreText: {fileID: 1950747623}
+  minimumStuntScore:
+    phariable: {fileID: 11400000, guid: 056ae3b159449c140ad35a1633a752db, type: 2}
+    useConstant: 0
+    constant: 0
   backflips:
     phariable: {fileID: 11400000, guid: 0264d23c92a0c5144a40d161fa6fcd94, type: 2}
     useConstant: 0
@@ -925,6 +929,10 @@ MonoBehaviour:
     constant: 0
   pizzasToDeliver:
     phariable: {fileID: 11400000, guid: 28e49f111fe41bf49bcc6d3dcd8cfa0b, type: 2}
+    useConstant: 0
+    constant: 0
+  maxPizzasToDeliver:
+    phariable: {fileID: 11400000, guid: 629f322f8b61816469d57c3e0a975048, type: 2}
     useConstant: 0
     constant: 0
   pizzasDeliveredText: {fileID: 1177917356}

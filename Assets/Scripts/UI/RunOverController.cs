@@ -21,6 +21,8 @@ public class RunOverController : MonoBehaviour
     [SerializeField]
     private TMP_Text stuntScoreText;
     [SerializeField]
+    private IntRepherence minimumStuntScore;
+    [SerializeField]
     private IntRepherence backflips;
     [SerializeField]
     private TMP_Text backflipsText;
@@ -51,6 +53,8 @@ public class RunOverController : MonoBehaviour
     private IntRepherence pizzasDelivered;
     [SerializeField]
     private IntRepherence pizzasToDeliver;
+    [SerializeField]
+    private IntRepherence maxPizzasToDeliver;
     [SerializeField]
     private TMP_Text pizzasDeliveredText;
     [SerializeField]
@@ -107,9 +111,33 @@ public class RunOverController : MonoBehaviour
         wheelieTimeText.text = ((int)wheelieTime.value).ToString();
         stoppieTimeText.text = ((int)stoppieTime.value).ToString();
 
-        scoreAboveBelowText.text = stuntScore.value >= 1000 ? "Stunt score is 1000 or higher" : "Stunt score is below 1000";
-        customerGainedText.text = stuntScore.value >= 1000 ? "You gained a customer!" : "You lost a customer";
-        customerGainedText.color = stuntScore.value >= 1000 ? gainedColor : lostColor;
+
+        if(stuntScore.value >= minimumStuntScore.value)
+        {
+            if(pizzasToDeliver.value < maxPizzasToDeliver.value)
+            {
+                customerGainedText.text = "You gained a customer!";
+            }
+            else
+            {
+                customerGainedText.text = "You're at max capacity.";
+            }
+        }
+        else
+        {
+            if(pizzasToDeliver.value > 1)
+            {
+                customerGainedText.text = "You lost a customer";
+            }
+            else
+            {
+                customerGainedText.text = "You can't lose any more customers";
+            }
+        }
+
+        scoreAboveBelowText.text = stuntScore.value >= minimumStuntScore.value ? $"Stunt score is {minimumStuntScore.value} or higher" : $"Stunt score is below {minimumStuntScore.value}";
+        //customerGainedText.text = stuntScore.value >= minimumStuntScore.value ? "You gained a customer!" : "You lost a customer";
+        customerGainedText.color = stuntScore.value >= minimumStuntScore.value ? gainedColor : lostColor;
 
         pizzasDeliveredText.text = $"{pizzasDelivered.value}/{pizzasToDeliver.value}";
         deliveredPizzaProfitText.text = $"${pizzasDelivered.value * pricePerPizza.value} ({pizzasDelivered.value} x ${pricePerPizza.value})";
@@ -125,9 +153,17 @@ public class RunOverController : MonoBehaviour
         money.value += profit;
         moneyText.text = $"${money.value}";
 
+        //Reset and configure variabvles
         day.value++;
         pizzasDelivered.value = 0;
 
+        if(stuntScore >= minimumStuntScore.value)
+        {
+            pizzasToDeliver.value++;
+            pizzasToDeliver.value = Mathf.Clamp(pizzasToDeliver.value, 0, maxPizzasToDeliver.value);
+        }
+
+        //GameOver state
         if (money.value < 0)
         {
             day.value = 0;
