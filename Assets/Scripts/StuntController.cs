@@ -16,7 +16,7 @@ public class StuntController : MonoBehaviour
     [SerializeField]
     private BoolRepherence backWheelGrounded;
 
-    [Header("Stunt States")]
+    [Header("Stunt states")]
     [SerializeField]
     private FloatRepherence wheelieCounter;
     [SerializeField]
@@ -54,6 +54,8 @@ public class StuntController : MonoBehaviour
             {
                 didFrontFlip.value = true;
             }
+
+            isUpsideDown = false;
         }
     }
 
