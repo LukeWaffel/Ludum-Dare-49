@@ -6,9 +6,9 @@ using ExpPlus.Phariables;
 public class TimeController : MonoBehaviour
 {
 
-    [Header("Events")]
+    [Header("Repherences")]
     [SerializeField]
-    private BoolRepherence pizzaDelivered;
+    private IntRepherence pizzasDelivered;
 
     [Header("Status")]
     [SerializeField]
@@ -20,12 +20,12 @@ public class TimeController : MonoBehaviour
 
     private void OnEnable()
     {
-        pizzaDelivered.phariable.SubscribeToOnChangeSignal("triggered", PizzaDelivered);
+        pizzasDelivered.phariable.SubscribeToOnChangeSignal("changed", PizzaDelivered);
     }
 
     private void OnDisable()
     {
-        pizzaDelivered.phariable.UnSubscribeFromOnChangeSignal("triggered", PizzaDelivered);
+        pizzasDelivered.phariable.UnSubscribeFromOnChangeSignal("changed", PizzaDelivered);
     }
 
     private void Start()

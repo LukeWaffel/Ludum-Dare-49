@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 5357089730480895822}
   - component: {fileID: 5357089730480895817}
   - component: {fileID: 5357089730480895816}
+  - component: {fileID: 7471986796876286787}
   m_Layer: 6
   m_Name: Scooter(300)
   m_TagString: Untagged
@@ -781,6 +782,23 @@ MonoBehaviour:
     constant: 0
   didFrontFlip:
     phariable: {fileID: 11400000, guid: 8bfc0640061b0964d9b5e8a997a13999, type: 2}
+    useConstant: 0
+    constant: 0
+--- !u!114 &7471986796876286787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5357089730480895819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca6baa38e00859d41a854d1ca9c18b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearestCustomer: {fileID: 0}
+  pizzasDelivered:
+    phariable: {fileID: 11400000, guid: 99a00fb7a277d77429d7f6d87a9c661c, type: 2}
     useConstant: 0
     constant: 0
 --- !u!1001 &4735654641332981464
