@@ -23,6 +23,8 @@ public class LevelCompleteChecker : MonoBehaviour
 
     private void OnPizzaDelivered()
     {
-        timeLeft.value = 0f;
+
+        if(pizzasDelivered.value == pizzasToDeliver.value)
+            timeLeft.value = 0f;
     }
 }

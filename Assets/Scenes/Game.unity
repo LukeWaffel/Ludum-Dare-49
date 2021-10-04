@@ -6732,6 +6732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scooter(300)
       objectReference: {fileID: 0}
+    - target: {fileID: 7471986796876286787, guid: 3897196926e4def41bcaca23729e6e09, type: 3}
+      propertyPath: slicePrefab
+      value: 
+      objectReference: {fileID: 2875781898298285383, guid: 33b78176a2dbb63498e3afece541d317, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3897196926e4def41bcaca23729e6e09, type: 3}
 --- !u!114 &4735654640726601619 stripped

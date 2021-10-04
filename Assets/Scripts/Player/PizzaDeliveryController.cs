@@ -8,6 +8,8 @@ public class PizzaDeliveryController : MonoBehaviour
     private GameObject nearestCustomer;
     [SerializeField]
     private IntRepherence pizzasDelivered;
+    [SerializeField]
+    private GameObject slicePrefab;
 
     public void DeliverPizzaEvent(InputAction.CallbackContext context)
     {
@@ -17,6 +19,9 @@ public class PizzaDeliveryController : MonoBehaviour
 
             nearestCustomer.tag = "Untagged";
             nearestCustomer = null;
+
+            GameObject spawnedSlice = Instantiate(slicePrefab, transform.position + new Vector3(-1f, 1f), Quaternion.identity);
+            spawnedSlice.GetComponent<Rigidbody2D>().AddForce(new Vector2(-2f, 2f), ForceMode2D.Impulse);
         }
     }
 
