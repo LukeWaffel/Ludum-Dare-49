@@ -191,6 +191,6 @@ public class RunOverController : MonoBehaviour
 
     public void Exit()
     {
-
+        SceneManager.LoadScene("main-menu");
     }
 }
