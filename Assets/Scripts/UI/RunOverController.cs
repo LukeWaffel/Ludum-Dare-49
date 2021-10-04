@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using ExpPlus.Phariables;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class RunOverController : MonoBehaviour
 {
@@ -76,6 +75,16 @@ public class RunOverController : MonoBehaviour
 
     #endregion
 
+    [Header("Game Over references")]
+    [SerializeField]
+    private GameObject gameOverText;
+    [SerializeField]
+    private GameObject gameOverExplainerText;
+    [SerializeField]
+    private TMP_Text continueButtonText;
+    [SerializeField]
+    private TMP_Text moneyLabel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +99,7 @@ public class RunOverController : MonoBehaviour
 
     private void OnOpen()
     {
-        dayText.text = day.value.ToString();
+        dayText.text = $"Day: {day.value}";
 
         stuntScoreText.text = stuntScore.value.ToString();
         backflipsText.text = backflips.value.ToString();
@@ -113,12 +122,29 @@ public class RunOverController : MonoBehaviour
         float profit = (pizzasDelivered.value * pricePerPizza.value) - (pizzasDelivered.value * variableBusinessExpense.value) - fixedBusinessExpense.value;
         profitText.text = $"${profit}";
 
+        money.value += profit;
         moneyText.text = $"${money.value}";
+
+        day.value++;
+
+        if (money.value < 0)
+        {
+            day.value = 0;
+            money.value = 0;
+
+            gameOverText.SetActive(true);
+            gameOverExplainerText.SetActive(true);
+            continueButtonText.text = "Restart";
+
+            Color gameOverColor = gameOverText.GetComponent<TMP_Text>().color;
+            moneyText.color = gameOverColor;
+            moneyLabel.color = gameOverColor;
+        }
     }
 
     public void Continue()
     {
-
+        SceneManager.LoadScene("game");
     } 
 
     public void Exit()
