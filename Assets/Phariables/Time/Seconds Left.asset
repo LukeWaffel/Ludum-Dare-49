@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835775ea25caccd41aa1993450bbcf0f, type: 3}
   m_Name: Seconds Left
   m_EditorClassIdentifier: 
-  _value: -4.042511
+  _value: 32.57857
   onChangeSignals:
   - name: changed
     conditions:
