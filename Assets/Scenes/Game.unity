@@ -538,12 +538,12 @@ GameObject:
   - component: {fileID: 261236198}
   - component: {fileID: 261236200}
   m_Layer: 5
-  m_Name: Run Over
+  m_Name: Run Finished
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &261236197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -790,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.20001, y: -0.20150757}
+  m_AnchoredPosition: {x: -0.2000122, y: -0.20150757}
   m_SizeDelta: {x: 0.40005, y: -1.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &392366284
@@ -3536,7 +3536,7 @@ MonoBehaviour:
     useConstant: 0
     constant: 0
   worldEdgeOffset: 5
-  customerSpawnOffset: {x: 0, y: 5, z: 0}
+  customerSpawnOffset: {x: 0, y: 6, z: 0}
 --- !u!1 &1303022478
 GameObject:
   m_ObjectHideFlags: 0
