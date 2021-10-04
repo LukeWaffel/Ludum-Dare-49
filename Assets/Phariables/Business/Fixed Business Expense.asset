@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 835775ea25caccd41aa1993450bbcf0f, type: 3}
-  m_Name: Price Per Pizza
+  m_Name: Fixed Business Expense
   m_EditorClassIdentifier: 
-  _value: 10
+  _value: 5
   onChangeSignals: []

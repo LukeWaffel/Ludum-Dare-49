@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835775ea25caccd41aa1993450bbcf0f, type: 3}
   m_Name: Seconds Left
   m_EditorClassIdentifier: 
-  _value: 20
+  _value: -1.8087486
   onChangeSignals:
   - name: changed
     conditions:
@@ -22,7 +22,7 @@ MonoBehaviour:
         name: Smaller than or equal to
   - name: out of time
     conditions:
-    - value: 0
+    - value: 1
       logic: []
       selectedLogic:
         name: Greater than or equal to
