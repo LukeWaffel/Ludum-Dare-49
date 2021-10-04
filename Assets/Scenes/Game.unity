@@ -325,7 +325,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.089711644, g: 0.75273126, b: 0.9056604, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -546,7 +546,6 @@ MonoBehaviour:
     phariable: {fileID: 11400000, guid: acd23ccb11a7a624d99ec8d3ab49471c, type: 2}
     useConstant: 0
     constant: 0
-  previousActiveWheelie: 0
 --- !u!4 &1195852138
 Transform:
   m_ObjectHideFlags: 0
@@ -607,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 1.5, z: -10}
-  m_XDamping: 1
+  m_XDamping: 0
   m_YDamping: 1
   m_ZDamping: 1
   m_AngularDampingMode: 0
@@ -663,9 +662,9 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.25
   m_Points:
-  - {x: -0.25, y: -0.25050002}
-  - {x: 2, y: -0.25050002}
-  - {x: 2.25, y: -0.25050002}
+  - {x: 0, y: 1.8290001}
+  - {x: 1.9063704, y: 1.8290001}
+  - {x: 2, y: 1.8290001}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -715,7 +714,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-  m_SpriteShape: {fileID: 11400000, guid: f24cddf7c09a6442abbce710a6fd7397, type: 2}
+  m_SpriteShape: {fileID: 11400000, guid: ba86e2b9b4143984fa68fec8f4b952b9, type: 2}
   m_FillPixelPerUnit: 256
   m_StretchTiling: 1
   m_SplineDetail: 16
@@ -724,7 +723,7 @@ MonoBehaviour:
   m_WorldSpaceUV: 0
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
-  m_ColliderOffset: 0
+  m_ColliderOffset: 0.385
   m_UpdateCollider: 1
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
@@ -774,9 +773,9 @@ SpriteShapeRenderer:
   m_SortingOrder: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
+  m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 0ae2b74b1edd14bb18dd7b65ae916a54, type: 3}
+  - {fileID: 21300000, guid: f621387da713cf441ac8dff423ad5d75, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -787,7 +786,7 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
     m_Center: {x: 1, y: -0.25, z: -0.00005}
-    m_Extent: {x: 1.25, y: 0.25, z: 0.00005}
+    m_Extent: {x: 1, y: 2.7, z: 0.00005}
 --- !u!4 &1295713575
 Transform:
   m_ObjectHideFlags: 0
@@ -796,7 +795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295713571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 2, z: 0}
+  m_LocalPosition: {x: 5, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -816,8 +815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteShapeController: {fileID: 1295713573}
   player: {fileID: 8017203963815645269}
-  generationBorder: 0
-  pointOffset: {x: 3, y: 1.5}
+  generationBorder: -20
+  pointOffset: {x: 7.5, y: 1.5}
   tangentOffset: {x: 1, y: 0}
 --- !u!1 &1467780555
 GameObject:
