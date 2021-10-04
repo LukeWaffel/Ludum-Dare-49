@@ -6,37 +6,59 @@ using UnityEngine.U2D;
 
 public class WorldGenerator : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField]
     private SpriteShapeController spriteShapeController;
 
+    [Header("Config")]
     [SerializeField]
-    private Transform player;
-    [SerializeField]
-    private float generationBorder;
-
+    private int pointCount;
     [SerializeField]
     private Vector2 pointOffset;
     [SerializeField]
     private Vector2 tangentOffset;
+    [SerializeField]
+    private float noiseScale = 1.0f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        GenerateWorld(pointCount);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GenerateWorld(int pointCount)
     {
-        if(player.position.x >= generationBorder)
-        {
-            generationBorder += pointOffset.x * 3;
+        Spline spline = spriteShapeController.spline;
 
-            for(int i =0; i < 3; i++)
-            {
-                Testing();
-            }
-        }    
+        for (int i = 0; i < pointCount; i++)
+        {
+
+            AddPoint(new Vector3(pointOffset.x * (i+1), GeneratePointHeight(pointOffset.x * i) * noiseScale));
+        }
+    }
+
+    private void AddPoint(Vector3 position)
+    {
+        Spline spline = spriteShapeController.spline;
+
+        Vector3 lastPoint = spline.GetPosition(spline.GetPointCount() - 1);
+        spline.SetPosition(spline.GetPointCount() - 1, new Vector3(pointOffset.x * pointCount, lastPoint.y));
+
+        Vector3 previousPoint = spline.GetPosition(spline.GetPointCount() - 2);
+        Vector3 currentPoint = position;
+        Vector3 nextPoint = spline.GetPosition(spline.GetPointCount() - 1);
+
+        spline.InsertPointAt(spline.GetPointCount() - 1, currentPoint);
+
+        spline.SetTangentMode(spline.GetPointCount() - 2, ShapeTangentMode.Continuous);
+
+        //Smoother curves
+        spline.SetLeftTangent(spline.GetPointCount() - 2, new Vector3(-tangentOffset.x, tangentOffset.y));
+        spline.SetRightTangent(spline.GetPointCount() - 2, new Vector3(tangentOffset.x, tangentOffset.y));
+    }
+    
+    private float GeneratePointHeight(float pointPosition)
+    {
+        return Mathf.PerlinNoise(pointPosition, 0.0f);
     }
 
     [ContextMenu("Test")]

@@ -889,10 +889,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteShapeController: {fileID: 1295713573}
-  player: {fileID: 8017203963815645269}
-  generationBorder: -20
+  pointCount: 50
   pointOffset: {x: 7.5, y: 1.5}
   tangentOffset: {x: 1, y: 0}
+  noiseScale: 5
 --- !u!1 &1331750731
 GameObject:
   m_ObjectHideFlags: 0
