@@ -47,16 +47,16 @@ public class WorldGenerator : MonoBehaviour
     {
         Spline spline = spriteShapeController.spline;
 
-        float houseInterval = (spline.GetPointCount() - (worldEdgeOffset * 2) - 3) / customerAmount.value;
+        float houseInterval = (spline.GetPointCount() - (worldEdgeOffset * 2) - 3) / 6;
+        int spawnIndex = (int)houseInterval;
 
-        for (int i = worldEdgeOffset; i < spline.GetPointCount()-worldEdgeOffset-3; i++)
+        for(int i =1; i < customerAmount.value +1; i++)
         {
-            if(i % houseInterval == 0)
-            {
-                Vector3 splinePosition = spline.GetPosition(i);
-                Vector3 housePosition = new Vector3(transform.position.x + splinePosition.x + customerSpawnOffset.x, transform.position.y + splinePosition.y + customerSpawnOffset.y);
-                GameObject spawnedHouse = Instantiate(customerPrefab, housePosition, Quaternion.identity);
-            }
+
+            Vector3 splinePosition = spline.GetPosition((3+worldEdgeOffset) + (i * (int)houseInterval));
+            Vector3 housePosition = new Vector3(transform.position.x + splinePosition.x + customerSpawnOffset.x, transform.position.y + splinePosition.y + customerSpawnOffset.y);
+            GameObject spawnedHouse = Instantiate(customerPrefab, housePosition, Quaternion.identity);
+
         }
     }
 
