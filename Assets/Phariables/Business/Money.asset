@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835775ea25caccd41aa1993450bbcf0f, type: 3}
   m_Name: Money
   m_EditorClassIdentifier: 
-  _value: 50
+  _value: 30
   onChangeSignals: []
