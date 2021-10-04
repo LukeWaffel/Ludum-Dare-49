@@ -10,7 +10,7 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField]
     private SpriteShapeController spriteShapeController;
 
-    [Header("Config")]
+    [Header("World Config")]
     [SerializeField]
     private int pointCount;
     [SerializeField]
@@ -20,19 +20,45 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField]
     private float noiseScale = 1.0f;
 
+    [Header("House Config")]
+    [SerializeField]
+    private GameObject housePrefab;
+    [SerializeField]
+    private int houseAmount = 1;
+    [SerializeField]
+    private int worldEdgeOffset = 5;
+    [SerializeField]
+    private Vector3 houseSpawnOffset;
     void Start()
     {
         GenerateWorld(pointCount);
+        GenerateCustomers();
     }
 
     private void GenerateWorld(int pointCount)
     {
-        Spline spline = spriteShapeController.spline;
 
         for (int i = 0; i < pointCount; i++)
         {
 
-            AddPoint(new Vector3(pointOffset.x * (i+1), GeneratePointHeight(pointOffset.x * i) * noiseScale));
+            AddPoint(new Vector3(pointOffset.x * (i + 1), GeneratePointHeight(pointOffset.x * i) * noiseScale));
+        }
+    }
+
+    private void GenerateCustomers()
+    {
+        Spline spline = spriteShapeController.spline;
+
+        float houseInterval = (spline.GetPointCount() - (worldEdgeOffset * 2) - 3) / houseAmount;
+
+        for (int i = worldEdgeOffset; i < spline.GetPointCount()-worldEdgeOffset-3; i++)
+        {
+            if(i % houseInterval == 0)
+            {
+                Vector3 splinePosition = spline.GetPosition(i);
+                Vector3 housePosition = new Vector3(transform.position.x + splinePosition.x + houseSpawnOffset.x, transform.position.y + splinePosition.y + houseSpawnOffset.y);
+                GameObject spawnedHouse = Instantiate(housePrefab, housePosition, Quaternion.identity);
+            }
         }
     }
 

@@ -893,6 +893,10 @@ MonoBehaviour:
   pointOffset: {x: 7.5, y: 1.5}
   tangentOffset: {x: 1, y: 0}
   noiseScale: 5
+  housePrefab: {fileID: 8917624032020555701, guid: e6dc89128379e15449f20fcf14728975, type: 3}
+  houseAmount: 10
+  worldEdgeOffset: 5
+  houseSpawnOffset: {x: 0, y: 5, z: 0}
 --- !u!1 &1331750731
 GameObject:
   m_ObjectHideFlags: 0
