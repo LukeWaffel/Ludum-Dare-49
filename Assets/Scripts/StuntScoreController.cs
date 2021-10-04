@@ -44,8 +44,8 @@ public class StuntScoreController : MonoBehaviour
 
     private void OnEnable()
     {
-        didBackflip.phariable.SubscribeToOnChangeSignal("changed", DidBackflip);
-        didFrontFlip.phariable.SubscribeToOnChangeSignal("changed", DidFrontFlip);
+        didBackflip.phariable.SubscribeToOnChangeSignal("triggered", DidBackflip);
+        didFrontFlip.phariable.SubscribeToOnChangeSignal("triggered", DidFrontFlip);
         
         wheelieCounter.phariable.SubscribeToOnChangeSignal("active", WheelieActive);
         wheelieCounter.phariable.SubscribeToOnChangeSignal("ended", WheelieEnded);
@@ -56,8 +56,8 @@ public class StuntScoreController : MonoBehaviour
 
     private void OnDisable()
     {
-        didBackflip.phariable.UnSubscribeFromOnChangeSignal("changed", DidBackflip);
-        didFrontFlip.phariable.UnSubscribeFromOnChangeSignal("changed", DidFrontFlip);
+        didBackflip.phariable.UnSubscribeFromOnChangeSignal("triggered", DidBackflip);
+        didFrontFlip.phariable.UnSubscribeFromOnChangeSignal("triggered", DidFrontFlip);
 
         wheelieCounter.phariable.UnSubscribeFromOnChangeSignal("active", WheelieActive);
         wheelieCounter.phariable.UnSubscribeFromOnChangeSignal("ended", WheelieEnded);

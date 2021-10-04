@@ -28,6 +28,11 @@ public class TimeController : MonoBehaviour
         pizzaDelivered.phariable.UnSubscribeFromOnChangeSignal("triggered", PizzaDelivered);
     }
 
+    private void Start()
+    {
+        secondsLeft.value = secondsPerPizza.value;
+    }
+
     private void Update()
     {
         secondsLeft.value -= Time.deltaTime;
