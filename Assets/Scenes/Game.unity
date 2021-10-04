@@ -565,11 +565,11 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.25
   m_Points:
-  - {x: -0.25, y: 0}
-  - {x: 2, y: 0}
-  - {x: 2.25, y: 0}
+  - {x: -0.25, y: -0.25050002}
+  - {x: 2, y: -0.25050002}
+  - {x: 2.25, y: -0.25050002}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
   m_WorldSpaceUV: 0
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
-  m_ColliderOffset: 0.5
+  m_ColliderOffset: 0
   m_UpdateCollider: 1
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
