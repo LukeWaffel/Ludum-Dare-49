@@ -126,6 +126,7 @@ public class RunOverController : MonoBehaviour
         moneyText.text = $"${money.value}";
 
         day.value++;
+        pizzasDelivered.value = 0;
 
         if (money.value < 0)
         {

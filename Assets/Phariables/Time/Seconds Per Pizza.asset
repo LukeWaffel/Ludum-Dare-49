@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835775ea25caccd41aa1993450bbcf0f, type: 3}
   m_Name: Seconds Per Pizza
   m_EditorClassIdentifier: 
-  _value: 25
+  _value: 35
   onChangeSignals: []

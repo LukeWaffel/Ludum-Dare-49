@@ -5608,10 +5608,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 750, y: 50}
+    - - {x: 2000, y: 50}
       - {x: -5, y: 50}
       - {x: -5, y: -50}
-      - {x: 750, y: -50}
+      - {x: 2000, y: -50}
 --- !u!4 &1703860080
 Transform:
   m_ObjectHideFlags: 0
