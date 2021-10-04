@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: Stunt Score
   m_EditorClassIdentifier: 
   _value: 0
-  onChangeSignals: []
+  onChangeSignals:
+  - name: changed
+    conditions:
+    - value: 0
+      logic: []
+      selectedLogic:
+        name: Not equal to

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34f7ec25de659348ab398e2fd1d880f, type: 3}
   m_Name: Pizzas Delivered
   m_EditorClassIdentifier: 
-  _value: 5
+  _value: 0
   onChangeSignals:
   - name: changed
     conditions:

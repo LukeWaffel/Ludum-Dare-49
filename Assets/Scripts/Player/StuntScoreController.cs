@@ -15,9 +15,9 @@ public class StuntScoreController : MonoBehaviour
     [SerializeField]
     private BoolRepherence didFrontFlip;
     [SerializeField]
-    private FloatRepherence wheelieCounter;
+    private FloatRepherence activeWheelieCounter;
     [SerializeField]
-    private FloatRepherence stoppieCounter;
+    private FloatRepherence activeStoppieCounter;
 
     [Header("Stunt counters")]
     [SerializeField]
@@ -47,11 +47,11 @@ public class StuntScoreController : MonoBehaviour
         didBackflip.phariable.SubscribeToOnChangeSignal("triggered", DidBackflip);
         didFrontFlip.phariable.SubscribeToOnChangeSignal("triggered", DidFrontFlip);
         
-        wheelieCounter.phariable.SubscribeToOnChangeSignal("active", WheelieActive);
-        wheelieCounter.phariable.SubscribeToOnChangeSignal("ended", WheelieEnded);
+        activeWheelieCounter.phariable.SubscribeToOnChangeSignal("active", WheelieActive);
+        activeWheelieCounter.phariable.SubscribeToOnChangeSignal("ended", WheelieEnded);
 
-        stoppieCounter.phariable.SubscribeToOnChangeSignal("active", StoppieActive);
-        stoppieCounter.phariable.SubscribeToOnChangeSignal("ended", StoppieEnded);
+        activeStoppieCounter.phariable.SubscribeToOnChangeSignal("active", StoppieActive);
+        activeStoppieCounter.phariable.SubscribeToOnChangeSignal("ended", StoppieEnded);
     }
 
     private void OnDisable()
@@ -59,42 +59,58 @@ public class StuntScoreController : MonoBehaviour
         didBackflip.phariable.UnSubscribeFromOnChangeSignal("triggered", DidBackflip);
         didFrontFlip.phariable.UnSubscribeFromOnChangeSignal("triggered", DidFrontFlip);
 
-        wheelieCounter.phariable.UnSubscribeFromOnChangeSignal("active", WheelieActive);
-        wheelieCounter.phariable.UnSubscribeFromOnChangeSignal("ended", WheelieEnded);
+        activeWheelieCounter.phariable.UnSubscribeFromOnChangeSignal("active", WheelieActive);
+        activeWheelieCounter.phariable.UnSubscribeFromOnChangeSignal("ended", WheelieEnded);
 
-        stoppieCounter.phariable.UnSubscribeFromOnChangeSignal("active", StoppieActive);
-        stoppieCounter.phariable.UnSubscribeFromOnChangeSignal("ended", StoppieEnded);
+        activeStoppieCounter.phariable.UnSubscribeFromOnChangeSignal("active", StoppieActive);
+        activeStoppieCounter.phariable.UnSubscribeFromOnChangeSignal("ended", StoppieEnded);
+    }
+
+    private void RecalculateTotalScore()
+    {
+
+        stuntScore.value = 0;
+        
+        stuntScore.value += backflipCounter.value * backflipValue.value;
+        stuntScore.value += frontflipCounter.value * frontflipValue.value;
+
+        stuntScore.value += (int)(totalWheelieCounter.value * wheelieValue.value);
+        stuntScore.value += (int)(totalStoppieCounter.value * stoppieValue.value);
     }
 
     private void DidBackflip()
     {
         backflipCounter.value++;
+        RecalculateTotalScore();
     }
 
     private void DidFrontFlip()
     {
         frontflipCounter.value++;
+        RecalculateTotalScore();
     }
     
     private void WheelieActive()
     {
-        previousActiveWheelie = wheelieCounter.value;
+        previousActiveWheelie = activeWheelieCounter.value;
     }
 
     private void WheelieEnded()
     {
         totalWheelieCounter.value += previousActiveWheelie;
         previousActiveWheelie = 0;
+        RecalculateTotalScore();
     }
 
     private void StoppieActive()
     {
-        previousActiveStoppie = stoppieCounter.value;
+        previousActiveStoppie = activeStoppieCounter.value;
     }
 
     private void StoppieEnded()
     {
         totalStoppieCounter.value += previousActiveStoppie;
         previousActiveStoppie = 0;
+        RecalculateTotalScore();
     }
 }
