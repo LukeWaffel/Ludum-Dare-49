@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: Seconds Left
   m_EditorClassIdentifier: 
   _value: 0
-  onChangeSignals: []
+  onChangeSignals:
+  - name: changed
+    conditions:
+    - value: 0
+      logic: []
+      selectedLogic:
+        name: Greater than or equal to
+  - name: out of time
+    conditions:
+    - value: 0
+      logic: []
+      selectedLogic:
+        name: Smaller than or equal to
