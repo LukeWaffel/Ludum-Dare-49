@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835775ea25caccd41aa1993450bbcf0f, type: 3}
   m_Name: Active Wheelie Counter
   m_EditorClassIdentifier: 
-  _value: 0
-  onChangeSignals: []
+  _value: 0.1
+  onChangeSignals:
+  - name: active
+    conditions:
+    - value: 0
+      logic: []
+      selectedLogic:
+        name: Not equal to
+  - name: ended
+    conditions:
+    - value: 0
+      logic: []
+      selectedLogic:
+        name: Equal to

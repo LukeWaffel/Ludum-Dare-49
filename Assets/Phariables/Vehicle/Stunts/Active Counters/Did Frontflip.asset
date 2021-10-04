@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d53fe7e1e4685c42acf51a6a85589c6, type: 3}
   m_Name: Did Frontflip
   m_EditorClassIdentifier: 
-  _value: 0
-  onChangeSignals: []
+  _value: 1
+  onChangeSignals:
+  - name: triggered
+    conditions:
+    - value: 0
+      logic: []
+      selectedLogic:
+        name: Always true

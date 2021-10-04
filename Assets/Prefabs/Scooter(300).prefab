@@ -801,6 +801,7 @@ MonoBehaviour:
     phariable: {fileID: 11400000, guid: 99a00fb7a277d77429d7f6d87a9c661c, type: 2}
     useConstant: 0
     constant: 0
+  slicePrefab: {fileID: 0}
 --- !u!114 &2430408020783833126
 MonoBehaviour:
   m_ObjectHideFlags: 0
