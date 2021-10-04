@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using ExpPlus.Phariables;
 using UnityEngine;
-using UnityEngine.Sprites;
 using UnityEngine.U2D;
 
 public class WorldGenerator : MonoBehaviour
@@ -20,15 +18,15 @@ public class WorldGenerator : MonoBehaviour
     [SerializeField]
     private float noiseScale = 1.0f;
 
-    [Header("House Config")]
+    [Header("Customer Config")]
     [SerializeField]
-    private GameObject housePrefab;
+    private GameObject customerPrefab;
     [SerializeField]
-    private int houseAmount = 1;
+    private IntRepherence customerAmount;
     [SerializeField]
     private int worldEdgeOffset = 5;
     [SerializeField]
-    private Vector3 houseSpawnOffset;
+    private Vector3 customerSpawnOffset;
     void Start()
     {
         GenerateWorld(pointCount);
@@ -49,15 +47,15 @@ public class WorldGenerator : MonoBehaviour
     {
         Spline spline = spriteShapeController.spline;
 
-        float houseInterval = (spline.GetPointCount() - (worldEdgeOffset * 2) - 3) / houseAmount;
+        float houseInterval = (spline.GetPointCount() - (worldEdgeOffset * 2) - 3) / customerAmount.value;
 
         for (int i = worldEdgeOffset; i < spline.GetPointCount()-worldEdgeOffset-3; i++)
         {
             if(i % houseInterval == 0)
             {
                 Vector3 splinePosition = spline.GetPosition(i);
-                Vector3 housePosition = new Vector3(transform.position.x + splinePosition.x + houseSpawnOffset.x, transform.position.y + splinePosition.y + houseSpawnOffset.y);
-                GameObject spawnedHouse = Instantiate(housePrefab, housePosition, Quaternion.identity);
+                Vector3 housePosition = new Vector3(transform.position.x + splinePosition.x + customerSpawnOffset.x, transform.position.y + splinePosition.y + customerSpawnOffset.y);
+                GameObject spawnedHouse = Instantiate(customerPrefab, housePosition, Quaternion.identity);
             }
         }
     }
